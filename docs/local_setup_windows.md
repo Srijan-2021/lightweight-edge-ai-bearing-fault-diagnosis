@@ -61,7 +61,7 @@ A Windows local run was manually checked on 16 November 2026. The example record
 
 ## 3. Run the learning notebooks (Modules 1–4)
 
-For the first four notebooks, use the smaller core environment. It installs NumPy, Pandas, SciPy, Matplotlib and JupyterLab, and avoids installing TensorFlow before you need the teacher-model notebook.
+For Modules 1–4 and the CWRU supplementary notebook 11, use the smaller core environment. It installs NumPy, Pandas, SciPy, scikit-learn, joblib, Matplotlib and JupyterLab, and avoids installing TensorFlow before you need the teacher-model notebook.
 
 Create the environment from the project root:
 
@@ -133,6 +133,22 @@ The current Streamlit virtual environment was created at `C:\.venv-streamlit` (o
 ```powershell
 C:\.venv-streamlit\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
+
+### Run the completed CWRU showcase notebook
+
+The CWRU notebook uses a selected 48 kHz drive-end subset and expects these 16 MATLAB files directly inside `data/raw/cwru_48k_de/`: four load files each for `Normal`, `IR007`, `B007` and `OR007@6`, with suffixes `_0.mat`, `_1.mat`, `_2.mat` and `_3.mat`.
+
+The expected directory is `data/raw/cwru_48k_de/`. A separate `cwru_12k_de` folder is not a substitute: this notebook explicitly uses `FS = 48000` and extracts drive-end variables ending in `_DE_time`.
+
+After copying the correct 16 files into that folder, install the expanded core requirements (this also adds scikit-learn and joblib to the already-created notebook environment):
+
+```powershell
+..\.venv-notebooks\Scripts\python.exe -m pip install -r ..\requirements-notebooks-core.txt
+```
+
+Then, with JupyterLab started from the `notebooks` folder, open `11_cwru_dataset_inspection.ipynb`. Run it from top to bottom. It produces result files under `results/cwru_inspection_48k/` and processed feature/window files under `data/processed/`.
+
+This is a supplementary selected-subset study. Its load/recording splits do not prove generalisation to independent physical bearing specimens.
 
 ## 4. Later research notebooks and model training
 
