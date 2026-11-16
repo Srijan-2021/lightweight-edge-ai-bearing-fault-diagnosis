@@ -1,15 +1,15 @@
 # Run the project locally on Windows
 
-This guide covers the public Streamlit presentation demo and the research notebooks. Use the `add-portable-research-notebooks` branch to get the current teaching notebooks and Module 2–4 notes. The changes in that branch are still in PR #2 until it is merged.
+This guide covers the public Streamlit presentation demo and the research notebooks. The research notebooks and Module 2–4 notes have been merged into `main`. Download the main repository version.
 
 ## 0. Get the project files
 
-Beginner route: open the [research branch on GitHub](https://github.com/Srijan-2021/lightweight-edge-ai-bearing-fault-diagnosis/tree/add-portable-research-notebooks), select **Code → Download ZIP**, and extract the ZIP to a folder such as `Documents\lightweight-edge-ai-bearing-fault-diagnosis`.
+Beginner route: open the [research branch on GitHub](https://github.com/Srijan-2021/lightweight-edge-ai-bearing-fault-diagnosis), select **Code → Download ZIP**, and extract the ZIP to a folder such as `Documents\lightweight-edge-ai-bearing-fault-diagnosis`.
 
 Alternative, if Git for Windows is installed, open PowerShell in the parent folder where you want the project and run:
 
 ```powershell
-git clone --branch add-portable-research-notebooks https://github.com/Srijan-2021/lightweight-edge-ai-bearing-fault-diagnosis.git
+git clone https://github.com/Srijan-2021/lightweight-edge-ai-bearing-fault-diagnosis.git
 cd lightweight-edge-ai-bearing-fault-diagnosis
 ```
 
@@ -116,6 +116,23 @@ Choose the kernel **Python 3.11 (Bearing Notebooks)** if Jupyter asks. Run a cel
 Notebook 02 creates `data/processed/bearing_metadata.csv`, which notebook 03 expects. Notebook 03 also expects the original Paderborn bearing directories under `data/raw/`. If those files are absent, the first data-loading cell will not run.
 
 Start Jupyter from the `notebooks` folder because the notebooks use relative paths such as `../data/raw` and `../data/processed`.
+
+
+### Current setup checkpoint (16 November 2026)
+
+The user has successfully installed `requirements-notebooks-core.txt` into `.venv-notebooks`. The next step is to register the kernel and launch JupyterLab:
+
+```powershell
+.\.venv-notebooks\Scripts\python.exe -m ipykernel install --user --name bearing-notebooks --display-name "Python 3.11 (Bearing Notebooks)"
+cd notebooks
+..\.venv-notebooks\Scripts\python.exe -m jupyter lab
+```
+
+The current Streamlit virtual environment was created at `C:\.venv-streamlit` (outside the project folder). To restart the local app from the project root on a later day, run:
+
+```powershell
+C:\.venv-streamlit\Scripts\python.exe -m streamlit run streamlit_app.py
+```
 
 ## 4. Later research notebooks and model training
 
