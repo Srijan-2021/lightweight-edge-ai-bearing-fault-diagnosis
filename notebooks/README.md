@@ -35,6 +35,10 @@ Read [Understanding Vibration Signals](../docs/vibration_signals.md) alongside n
 
 Read [Mean, Standard Deviation and RMS](../docs/time_domain_features.md) alongside notebook 03. It explains the first three signal statistics with a worked example and the actual Paderborn example values.
 
+## Validation plan
+
+Read [Validation Plan](../docs/validation_plan.md) for the difference between unseen-bearing evaluation and physical edge-device benchmarking, the current Paderborn limitations, external data options and the proposed experiment schedule.
+
 ## Data paths
 
 The notebooks expect the original data and generated intermediate files in the project layout described in [../data/README.md](../data/README.md). Raw MATLAB data is not stored in Git.
