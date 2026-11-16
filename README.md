@@ -119,6 +119,12 @@ The scope is deliberately described accurately:
 
 A future hardware study should measure end-to-end latency, memory use, energy consumption and robustness on the target device.
 
+## Research notebooks
+
+The repository includes a cleaned starter sequence of six Paderborn research notebooks. See [notebooks/README.md](notebooks/README.md) for their order and how to run them. Install the separate research environment with `requirements-research.txt`; the Streamlit app continues to use the smaller `requirements.txt`.
+
+Raw Paderborn/CWRU recordings and generated intermediate datasets are not committed. See [data/README.md](data/README.md) for the local folder layout.
+
 ## Streamlit presentation demo
 
 The repository includes an interactive Streamlit app for presentation and demonstration. It accepts a Paderborn `.mat` recording, extracts the packaged 34-feature representation, and predicts Healthy or Damaged using the saved StandardScaler + Logistic Regression baseline.
@@ -135,6 +141,16 @@ For public hosting, merge the app files into `main`, then select this repository
 **Scope:** the hosted application is a cloud-based presentation demonstrator. Its interactive predictor is the standalone Paderborn 34-feature binary baseline, not the V2 sequence-model Stage 1/Stage 2 system. It is not a physical Raspberry Pi deployment or an edge-device benchmark. Raw MAT recordings are not committed.
 
 ## Documentation
+
+- [Validation plan — unseen bearings and edge-device readiness](docs/validation_plan.md)
+
+- [Windows local setup — Streamlit and research notebooks](docs/local_setup_windows.md)
+
+- [Time-domain features — Module 4](docs/time_domain_features.md)
+
+- [Understanding vibration signals — Module 3](docs/vibration_signals.md)
+
+- [Paderborn dataset and metadata — Module 2](docs/dataset_and_metadata.md)
 
 - [System architecture](docs/architecture.md)
 - [Experimental results summary](docs/experiment_results.md)
@@ -158,6 +174,8 @@ The repository now includes the Streamlit presentation app, the standalone Pader
 ## Reproducibility
 
 The Streamlit app includes a pinned Python 3.11 dependency file and a model-loading smoke test. The broader research notebooks still require their own documented data paths and execution sequence; the app's smoke test does not validate accuracy on new recordings.
+
+Curated results and version-control guidance are documented in [results/README.md](results/README.md).
 
 ## Limitations
 

@@ -227,9 +227,12 @@ elif page == "Experimental results":
         hide_index=True,
     )
     st.caption(
-        "These are retrospective sequence-model results from a separate V2 pipeline. The Both "
-        "class was difficult to generalise, and the final test subset had been seen during earlier "
-        "project experimentation."
+        "These are retrospective results from the separate V2 22-feature sequence pipeline. "
+        "The V2 report describes a 22/5/5 bearing-wise split and states that the five final test "
+        "bearings were excluded from model selection; that claim should be confirmed against the "
+        "experiment logs before it is described as an untouched test. Only three physical "
+        "Paderborn bearings represent Both, so Stage 2 per-class generalisation remains data-limited. "
+        "The separately packaged 34-feature baseline has its own evaluation caveat."
     )
     st.subheader("CWRU supplementary 48 kHz study")
     st.dataframe(
