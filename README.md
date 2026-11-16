@@ -119,6 +119,12 @@ The scope is deliberately described accurately:
 
 A future hardware study should measure end-to-end latency, memory use, energy consumption and robustness on the target device.
 
+## Research notebooks
+
+The repository includes a cleaned starter sequence of six Paderborn research notebooks. See [notebooks/README.md](notebooks/README.md) for their order and how to run them. Install the separate research environment with `requirements-research.txt`; the Streamlit app continues to use the smaller `requirements.txt`.
+
+Raw Paderborn/CWRU recordings and generated intermediate datasets are not committed. See [data/README.md](data/README.md) for the local folder layout.
+
 ## Streamlit presentation demo
 
 The repository includes an interactive Streamlit app for presentation and demonstration. It accepts a Paderborn `.mat` recording, extracts the packaged 34-feature representation, and predicts Healthy or Damaged using the saved StandardScaler + Logistic Regression baseline.
@@ -158,6 +164,8 @@ The repository now includes the Streamlit presentation app, the standalone Pader
 ## Reproducibility
 
 The Streamlit app includes a pinned Python 3.11 dependency file and a model-loading smoke test. The broader research notebooks still require their own documented data paths and execution sequence; the app's smoke test does not validate accuracy on new recordings.
+
+Curated results and version-control guidance are documented in [results/README.md](results/README.md).
 
 ## Limitations
 
