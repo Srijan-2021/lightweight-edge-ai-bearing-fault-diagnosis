@@ -23,6 +23,10 @@ The first six curated notebooks currently in this repository are:
 | `10_continuous_signal_pipeline.ipynb` | Inspect signal timing, package inference and audit continuous-recording predictions |
 | `11_cwru_dataset_inspection.ipynb` | Run the supplementary CWRU 48 kHz feature and evaluation study |
 
+## Module 2 — Dataset and metadata
+
+Read [Dataset and Metadata](../docs/dataset_and_metadata.md) alongside notebooks 01 and 02. It explains the expected bearing/recording layout, filename structure, nested MATLAB channels, the two label schemes, and why bearing IDs must be preserved.
+
 ## Data paths
 
 The notebooks expect the original data and generated intermediate files in the project layout described in [../data/README.md](../data/README.md). Raw MATLAB data is not stored in Git.
