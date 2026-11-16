@@ -1,0 +1,8 @@
+# Lightweight environment for Modules 1–4 and notebooks 01–04.
+# Does not install TensorFlow; install requirements-research.txt for the full model-training environment.
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+matplotlib==3.11.2
+jupyterlab==4.6.4
+ipykernel==7.3.0
