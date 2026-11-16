@@ -20,6 +20,7 @@ The first six curated notebooks currently in this repository are:
 | `06_classical_baselines.ipynb` | Evaluate classical baselines for the prepared tasks |
 | `07_teacher_models.ipynb` | Train and evaluate LSTM, GRU and Transformer teacher models |
 | `09_baseline_model_packaging.ipynb` | Package and verify the separate 34-feature binary baseline |
+| `10_continuous_signal_pipeline.ipynb` | Inspect signal timing, package inference and audit continuous-recording predictions |
 | `11_cwru_dataset_inspection.ipynb` | Run the supplementary CWRU 48 kHz feature and evaluation study |
 
 ## Data paths
@@ -32,4 +33,4 @@ The early Paderborn notebooks use relative paths such as `../data/raw` and `../d
 
 Committed notebooks have cleared cell outputs to avoid embedding large tables, plots or run-specific machine paths. Run cells locally to regenerate outputs. The notebooks are research records; a successful JSON/syntax check is not the same as a complete end-to-end reproduction.
 
-Notebook 07 contains the sequence teacher-model experiments, while notebook 09 covers packaging the separate 34-feature binary baseline. The large combined binary-detection notebook (08) and continuous-signal audit (10) still require a separate portability/output review.
+Notebook 07 contains the sequence teacher-model experiments, while notebook 09 covers packaging the separate 34-feature binary baseline. The large combined binary-detection notebook (08) remains excluded because it duplicates parts of the staged workflow and needs a more substantial split and review.
