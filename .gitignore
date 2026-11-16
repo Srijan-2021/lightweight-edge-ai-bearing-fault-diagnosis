@@ -218,3 +218,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific research data (keep raw and processed datasets out of Git)
+data/
+datasets/
+*.mat
+
+# Model-training checkpoints and large intermediate artefacts
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.keras
+*.onnx
+
+# Joblib outputs are ignored by default; explicitly allow the small Paderborn
+# inference pipeline after reviewing its size and contents.
+*.joblib
+!models/
+!models/paderborn_baseline/
+!models/paderborn_baseline/paderborn_baseline_pipeline.joblib
+
+# Notebook output should be cleared before committing notebooks.
+# (Git cannot selectively ignore saved cell outputs inside an .ipynb file.)
