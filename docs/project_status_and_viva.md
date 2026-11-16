@@ -251,3 +251,18 @@ cd notebooks
 ```
 
 Keep the relevant PowerShell window open while using the application. Press `Ctrl+C` in that window to stop the running server.
+## 14. Presentation scope for the current work session
+
+The immediate showcase should use completed work rather than rush an external validation. The selected CWRU supplementary experiment is already implemented and documented, so it can be presented as an additional dataset study with its limits stated clearly.
+
+### CWRU supplementary showcase
+
+A 48 kHz drive-end subset was inspected and processed. The notebook verifies the selected MATLAB recordings, analyses frequency and envelope content, segments the recordings into 140 one-second windows, extracts and integrates 37 features (9 time-domain, 13 frequency-domain and 15 envelope-domain), and evaluates Logistic Regression using leave-one-motor-load-out and recording-grouped splits.
+
+Reported pooled leave-one-load-out accuracy was 100% for frequency-only, envelope-only and all 37 features; time-only was 97.86%. These results are restricted to the selected 16 recordings and their four motor-load groups. Different load recordings can belong to the same selected fault-condition series. Therefore, present this as a supplementary cross-load/recording study, not as proof of generalisation to independent physical bearing specimens.
+
+### UORED decision
+
+Do not claim UORED validation is complete. In the remaining short presentation-preparation session, a full defensible UORED study is not a realistic deliverable: it first requires downloading and inspecting the archive, confirming MAT/CSV channel structure and calibration, mapping bearing IDs and health states, adapting the 42 kHz signal processing and geometry-specific features, and freezing the external-test protocol.
+
+A quick exploratory inspection of one UORED file could be started later, but that would only establish file readability and signal metadata. It would not produce a valid cross-dataset model result. The immediate presentation should therefore showcase Paderborn implementation, the existing CWRU supplementary analysis and the local Streamlit demo; describe UORED as planned external validation.
