@@ -1,6 +1,6 @@
 # Research notebooks
 
-Run the notebooks in numerical order from a Jupyter session started inside this folder:
+For Windows setup, see [Run the project locally](../docs/local_setup_windows.md). Once dependencies and data are ready, run the notebooks in numerical order from a Jupyter session started inside this folder:
 
 ```bash
 cd notebooks
