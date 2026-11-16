@@ -253,7 +253,7 @@ cd notebooks
 Keep the relevant PowerShell window open while using the application. Press `Ctrl+C` in that window to stop the running server.
 ## 14. Presentation scope for the current work session
 
-The immediate showcase should use completed work rather than rush an external validation. The selected CWRU supplementary experiment is already implemented and documented, so it can be presented as an additional dataset study with its limits stated clearly.
+The immediate showcase should use completed work rather than rush an external validation. The selected CWRU supplementary experiment is already implemented and documented, so it can be presented as an additional dataset study with its limits stated clearly. The CWRU notebook itself contains 65 cells (49 code and 16 Markdown) and has been curated in the repository with saved outputs removed.
 
 ### CWRU supplementary showcase
 
