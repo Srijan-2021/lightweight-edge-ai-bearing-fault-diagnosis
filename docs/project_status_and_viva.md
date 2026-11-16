@@ -46,6 +46,12 @@ UORED-VAFCLS has been identified as a candidate for a later external test. It ha
 8. Compare classical machine-learning and sequence-model approaches.
 9. Package the separate binary baseline for interactive inference.
 
+### Notebook 08 — Binary Damage Detection
+
+Notebook 08 is the Paderborn binary-classification experiment, not a Stage 2 bearing-CV notebook. It contains separate Healthy-vs-Outer and Healthy-vs-Inner studies, plus an integrated Healthy-vs-Damaged experiment that maps Outer and Inner to Damaged and explicitly excludes Both. The integrated split is 21 training bearings, 4 validation bearings and 4 test bearings. It combines 22 general features with six BPFO and six BPFI envelope-energy features. Its final cell exports 1,999 development recordings from 25 bearings and 320 test recordings from 4 bearings for the later packaging workflow in Notebook 09.
+
+The original saved output reports 99.06% accuracy, 99.38% balanced accuracy, 99.37% F1 and ROC AUC 1.00 for the 34-feature integrated test run. The test group contains only four physical bearings and was inspected during iterative experimentation, so this is not a pristine untouched external test. The integrated experiment excludes Both.
+
 ## 5. V1 and V2 — why the experimental design changed
 
 ### V1
@@ -121,7 +127,7 @@ On 16 November 2026, the application was launched locally on Windows. The sample
 | Completed | Reusable Paderborn 34-feature binary inference module and saved model artefact |
 | Completed | Local Streamlit presentation demo and successful sample prediction |
 | Completed | Offline chunk-replay utility (software simulation) |
-| Completed | Ten curated notebooks: 01–07 and 09–11; Module 2–4 study notes; Windows setup documentation |
+| Completed | Eleven curated notebooks: 01–11, including Notebook 08 Binary Damage Detection; Module 2–4 study notes; Windows setup documentation |
 | Completed locally | Python 3.11.9; Streamlit environment and app; separate notebook virtual environment and core dependencies installed |
 | Next setup step | Register the notebook kernel and launch JupyterLab; place Paderborn raw data under `data/raw/` before running data-dependent cells |
 | Planned | Audit experiment history, rebuild Stage 2 sequences with explicit bearing IDs, and run bearing-level development cross-validation |
