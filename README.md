@@ -142,6 +142,8 @@ For public hosting, merge the app files into `main`, then select this repository
 
 ## Documentation
 
+- [Time-domain features — Module 4](docs/time_domain_features.md)
+
 - [Understanding vibration signals — Module 3](docs/vibration_signals.md)
 
 - [Paderborn dataset and metadata — Module 2](docs/dataset_and_metadata.md)
