@@ -27,6 +27,10 @@ The first six curated notebooks currently in this repository are:
 
 Read [Dataset and Metadata](../docs/dataset_and_metadata.md) alongside notebooks 01 and 02. It explains the expected bearing/recording layout, filename structure, nested MATLAB channels, the two label schemes, and why bearing IDs must be preserved.
 
+## Module 3 — Vibration signals
+
+Read [Understanding Vibration Signals](../docs/vibration_signals.md) alongside notebook 03. It explains how the sensor samples become a waveform, what amplitude and frequency mean, how the FFT view differs from the time view, and why the plotted dominant frequency is not itself a fault diagnosis.
+
 ## Data paths
 
 The notebooks expect the original data and generated intermediate files in the project layout described in [../data/README.md](../data/README.md). Raw MATLAB data is not stored in Git.
