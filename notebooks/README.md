@@ -31,6 +31,10 @@ Read [Dataset and Metadata](../docs/dataset_and_metadata.md) alongside notebooks
 
 Read [Understanding Vibration Signals](../docs/vibration_signals.md) alongside notebook 03. It explains how the sensor samples become a waveform, what amplitude and frequency mean, how the FFT view differs from the time view, and why the plotted dominant frequency is not itself a fault diagnosis.
 
+## Module 4 — Time-domain features
+
+Read [Mean, Standard Deviation and RMS](../docs/time_domain_features.md) alongside notebook 03. It explains the first three signal statistics with a worked example and the actual Paderborn example values.
+
 ## Data paths
 
 The notebooks expect the original data and generated intermediate files in the project layout described in [../data/README.md](../data/README.md). Raw MATLAB data is not stored in Git.
