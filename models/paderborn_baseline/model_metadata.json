@@ -1,0 +1,16 @@
+{
+    "model_version": "paderborn_binary_baseline_v1",
+    "dataset": "Paderborn University Bearing Dataset",
+    "task": "Binary classification",
+    "classifier": "Logistic Regression",
+    "scaling": "StandardScaler",
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "random_state": 42,
+    "decision_threshold": 0.5,
+    "training_recordings": 1999,
+    "training_bearings": 25,
+    "healthy_recordings": 400,
+    "damaged_recordings": 1599,
+    "number_of_features": 34
+}
