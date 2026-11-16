@@ -2,7 +2,7 @@
 
 A research prototype for vibration-based bearing fault diagnosis using signal processing, engineered features, compact machine-learning models, and an offline edge-inference simulation.
 
-> **Project status:** Experimental evaluation is complete for the current Paderborn baseline and the selected CWRU supplementary subset. Documentation is published; source code, cleaned notebooks and selected model artefacts are being added after local-file review. This is an academic prototype, not a validated industrial predictive-maintenance product.
+> **Project status:** Experimental evaluation is complete for the current Paderborn baseline and the selected CWRU supplementary subset. The Streamlit presentation demo, standalone Paderborn inference source and compact baseline artefact are included; the wider research notebooks and additional model artefacts are being curated separately. This is an academic prototype, not a validated industrial predictive-maintenance product.
 
 ## Overview
 
@@ -111,6 +111,21 @@ The scope is deliberately described accurately:
 
 A future hardware study should measure end-to-end latency, memory use, energy consumption and robustness on the target device.
 
+## Streamlit presentation demo
+
+The repository includes an interactive Streamlit app for presentation and demonstration. It accepts a Paderborn `.mat` recording, extracts the packaged 34-feature representation, and predicts Healthy or Damaged using the saved StandardScaler + Logistic Regression baseline.
+
+Run locally with Python 3.11:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
+
+For public hosting, merge the app files into `main`, then select this repository, the `main` branch and `streamlit_app.py` as the entrypoint in Streamlit Community Cloud. See [STREAMLIT_DEPLOYMENT.md](STREAMLIT_DEPLOYMENT.md).
+
+**Scope:** the hosted application is a cloud-based presentation demonstrator. Its interactive predictor is the standalone Paderborn 34-feature binary baseline, not the V2 sequence-model Stage 1/Stage 2 system. It is not a physical Raspberry Pi deployment or an edge-device benchmark. Raw MAT recordings are not committed.
+
 ## Documentation
 
 - [System architecture](docs/architecture.md)
@@ -130,11 +145,11 @@ results/selected/    Curated tables and presentation figures
 docs/                Methodology, architecture, literature review and limitations
 ~~~
 
-The documentation is published first. Source code, selected model artefacts, cleaned notebooks and curated results will be added after the local project files are reviewed. Raw vibration datasets, virtual environments, caches and temporary outputs should remain outside version control.
+The repository now includes the Streamlit presentation app, the standalone Paderborn inference module, and its compact model artefact. Additional research notebooks, sequence-model artefacts and curated outputs are being added only after review. Raw vibration datasets, virtual environments, caches and temporary outputs should remain outside version control.
 
 ## Reproducibility
 
-The notebooks and scripts will be accompanied by an environment/dependency specification and step-by-step commands as the repository is populated. Until that is complete, do not assume that a fresh clone is fully reproducible from this README alone.
+The Streamlit app includes a pinned Python 3.11 dependency file and a model-loading smoke test. The broader research notebooks still require their own documented data paths and execution sequence; the app's smoke test does not validate accuracy on new recordings.
 
 ## Limitations
 
