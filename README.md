@@ -2,15 +2,13 @@
 
 A research prototype for vibration-based bearing fault diagnosis using signal processing, engineered features, compact machine-learning models, and an offline edge-inference simulation.
 
-> **Project status:** Experimental evaluation is complete for the current Paderborn baseline and the selected CWRU supplementary subset. Repository contents are being added in reviewed, reproducible stages. This project is an academic prototype, not a validated industrial predictive-maintenance product.
+> **Project status:** Experimental evaluation is complete for the current Paderborn baseline and the selected CWRU supplementary subset. Documentation is published; source code, cleaned notebooks and selected model artefacts are being added after local-file review. This is an academic prototype, not a validated industrial predictive-maintenance product.
 
 ## Overview
 
 Rolling-bearing faults can produce characteristic changes in vibration signals. This project investigates a lightweight diagnosis pipeline that converts vibration measurements into engineered features and uses a compact classifier to distinguish healthy from damaged bearings.
 
-The main workflow is:
-
-```text
+~~~text
 Vibration signal
       |
       v
@@ -27,7 +25,7 @@ Compact classifier
       |
       v
 Predicted condition + class probability
-```
+~~~
 
 The implementation also includes a local offline replay path that feeds a saved inference pipeline with successive signal chunks. The replay is a software simulation; it is **not** a live sensor stream or a real-time hardware benchmark.
 
@@ -70,8 +68,8 @@ Dataset source: [CWRU Bearing Data Center](https://engineering.case.edu/bearingd
 
 The principal compact baseline is a scikit-learn pipeline:
 
-- `StandardScaler`
-- `LogisticRegression(class_weight="balanced", max_iter=2000, random_state=42)`
+- StandardScaler
+- LogisticRegression(class_weight="balanced", max_iter=2000, random_state=42)
 
 The saved inference artefact was approximately 3.25 KiB in the project environment, excluding Python and library dependencies.
 
@@ -113,19 +111,25 @@ The scope is deliberately described accurately:
 
 A future hardware study should measure end-to-end latency, memory use, energy consumption and robustness on the target device.
 
+## Documentation
+
+- [System architecture](docs/architecture.md)
+- [Literature review and research positioning](docs/literature_review.md)
+- [Evaluation, overfitting and deployment limitations](docs/limitations.md)
+
 ## Repository contents
 
-The repository is being populated incrementally. The intended organisation is:
+The intended organisation is:
 
-```text
+~~~text
 src/                 Inference and replay code
 models/              Small trained model artefacts and metadata
 notebooks/           Selected, cleaned experimental notebooks
 results/selected/    Curated tables and presentation figures
 docs/                Methodology, architecture, literature review and limitations
-```
+~~~
 
-Only reviewed project files and selected result artefacts will be committed. Raw vibration datasets, virtual environments, caches and temporary outputs should remain outside version control.
+The documentation is published first. Source code, selected model artefacts, cleaned notebooks and curated results will be added after the local project files are reviewed. Raw vibration datasets, virtual environments, caches and temporary outputs should remain outside version control.
 
 ## Reproducibility
 
@@ -137,7 +141,9 @@ The notebooks and scripts will be accompanied by an environment/dependency speci
 2. The selected CWRU subset does not provide a sufficient independent-specimen test.
 3. The Paderborn baseline's reported test subset was reused during iterative experimentation.
 4. Offline replay is not equivalent to live streaming or deployment on physical edge hardware.
-5. Feature-extraction and inference costs have not yet been benchmarked end-to-end on a target edge device.
+5. Feature-extraction and inference costs have not been benchmarked end-to-end on a target edge device.
+
+See [docs/limitations.md](docs/limitations.md) for the full interpretation and future-validation requirements.
 
 ## Acknowledgements and data sources
 
@@ -145,7 +151,3 @@ The notebooks and scripts will be accompanied by an environment/dependency speci
 - [Case Western Reserve University Bearing Data Center](https://engineering.case.edu/bearingdatacenter)
 
 Please consult each dataset provider's terms before downloading, redistributing or using the data.
-
-## Citation
-
-A citation file and a complete bibliography will be added after the final project title, author details and literature review are checked.
