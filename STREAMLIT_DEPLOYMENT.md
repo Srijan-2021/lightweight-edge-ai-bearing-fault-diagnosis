@@ -41,3 +41,14 @@ Official guide: https://docs.streamlit.io/deploy/streamlit-community-cloud/deplo
 The interactive predictor is the standalone Paderborn 34-feature binary baseline. It is **not** the V2 sequence-model Stage 1/Stage 2 system. Hosting the Streamlit app in the cloud is for presentation and demonstration; it is **not** a physical edge-device deployment, Raspberry Pi benchmark, live sensor stream or real-time validation.
 
 The model artefact is stored as a small Base64 text file in this repository and decoded to a temporary file when the app loads. Uploaded MAT files are written to temporary files for parsing and deleted afterwards. Raw Paderborn/CWRU datasets are not included.
+
+
+## Local offline replay (optional)
+
+The repository also contains `src/edge_replay.py`, a command-line replay utility. From the repository root, provide a local Paderborn MAT recording:
+
+```bash
+python src/edge_replay.py --mat-file path/to/recording.mat --chunk-size 4096
+```
+
+The script reconstructs the full signal from chunks before performing inference. It is accelerated offline replay, not continuous streaming or edge-hardware deployment.
