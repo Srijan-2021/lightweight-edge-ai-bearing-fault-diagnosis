@@ -102,6 +102,14 @@ The broader ablation also evaluated time-only and pairwise feature combinations.
 
 The project includes a saved Paderborn inference pipeline and a local signal-replay utility. The replay feeds successive chunks (currently 4,096 samples per chunk) to the inference workflow.
 
+Run the offline replay from the repository root after installing the dependencies and placing a valid Paderborn MAT file on your machine:
+
+```bash
+python src/edge_replay.py --mat-file path/to/recording.mat --chunk-size 4096
+```
+
+The script checks that chunk reconstruction exactly matches the original signal, performs prediction after the full signal has been buffered, prints timing breakdowns and saves a JSON report under `results/edge_replay/`. It is an accelerated offline simulation, not true real-time streaming.
+
 The scope is deliberately described accurately:
 
 - Local/offline replay of recorded signals.
