@@ -142,6 +142,8 @@ For public hosting, merge the app files into `main`, then select this repository
 
 ## Documentation
 
+- [Paderborn dataset and metadata — Module 2](docs/dataset_and_metadata.md)
+
 - [System architecture](docs/architecture.md)
 - [Experimental results summary](docs/experiment_results.md)
 - [Literature review and research positioning](docs/literature_review.md)
