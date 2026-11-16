@@ -161,3 +161,45 @@ A careful no-hardware research validation is likely around **one to two focused 
 | Repeated benchmark on a named physical edge device | Device-specific latency/memory result; add power meter/telemetry for energy claim |
 
 **Bottom line:** there is no single experiment that proves universal real-world generalisation. Build evidence in layers, keep physical bearings separate, lock test sets before use, and measure hardware claims on the hardware being claimed.
+## H. UORED is not a drop-in replacement for Paderborn
+
+Do **not** copy UORED MAT files into `data/raw/` beside the Paderborn bearing folders. The existing Paderborn notebooks expect Paderborn folder IDs and Paderborn filename/metadata conventions. Store the second dataset separately, for example:
+
+```text
+data/
+├── raw/                 # Existing Paderborn dataset
+└── external/
+    └── uored/
+        ├── raw_mat/
+        ├── raw_csv/
+        ├── raw_xlsx/
+        └── metadata/
+```
+
+The current `src/paderborn_inference.py` loader is specifically written for the Paderborn nested MATLAB structure and searches for named `vibration_1` and `speed` channels. The same module fixes the nominal sampling rate at 64,000 Hz and uses 6203 bearing geometry (8 balls, 6.75 mm ball diameter, 29.05 mm pitch diameter, 0° contact angle). UORED's MAT structure and variable/channel names must be inspected rather than assumed to match.
+
+The UORED-VAFCLS Version 5 description documents 42,000 Hz recordings of 10 seconds, raw data in CSV, Excel and MAT formats, and both accelerometer and microphone data. The 20 physical bearings each have three recorded states (healthy, developing fault, faulty), giving 60 signal sets. **The grouping unit is 20 physical bearings, not 60 independent bearings.** All three states from a physical bearing must stay together in any UORED train/validation/test partition.
+
+The UORED collection includes inner-race, outer-race, ball and cage fault categories. Its taxonomy is not the same as Paderborn's Healthy/Outer/Inner/Both labels. A binary external protocol can be defined (for example, Healthy versus Developing/Faulty) before predictions are examined, while retaining developing/faulty severity separately. It cannot be described as a direct external evaluation of Paderborn's exact Outer/Inner/Both Stage 2 classes.
+
+### What code would need to change?
+
+1. **File loader:** inspect one original UORED MAT file (or its CSV equivalent) to find the actual MATLAB keys, channel names, array shapes, signal units and metadata. Write a separate `uored_loader.py`; do not replace or weaken the existing Paderborn loader.
+2. **Sampling rate:** pass the documented 42 kHz rate explicitly. Do not run the UORED signal through feature code that silently assumes 64 kHz.
+3. **Sensor calibration:** inspect whether the accelerometer values are volts, g or physical acceleration. The dataset describes a PCB 623C01 accelerometer with 100 mV/g sensitivity; convert only if the downloaded file values require that conversion, and document the units.
+4. **Speed and geometry:** read the UORED metadata and identify the tested bearing model for each recording. Published descriptions identify both NSK 6203ZZ and FAFNIR 203KD bearing models in this collection. Do not blindly reuse the Paderborn 6203 geometry constants for every record.
+5. **Labels and groups:** parse the bearing identity and the healthy/developing/faulty state from the official metadata. Verify the mapping manually on a sample of files. Keep each physical bearing's three states together.
+6. **Feature compatibility:** create a documented feature adapter. Preserve the exact training feature order and units if testing the frozen Paderborn model. If sample-rate, sensor calibration or bearing geometry changes the feature meaning, the 34-feature Paderborn model may not be directly valid; do not refit its scaler or model on the external test set and still call it zero-shot validation.
+7. **Two distinct experiments:** (a) freeze the Paderborn-trained pipeline and evaluate UORED without fitting on UORED (cross-dataset/zero-shot test); (b) train a separate UORED model and use bearing-grouped splits (within-UORED generalisation). Report these as different experiments.
+
+### Minimal first step after downloading
+
+Download one representative raw MAT file plus its metadata/filename guide. Keep it in `data/external/uored/raw_mat/`. Inspect the MAT file's top-level keys and array structure, then plot its accelerometer signal using 42 kHz. Only after this passes should the full archive be arranged and an automated loader written. The CSV copy can be used as an easier comparison if the MAT file structure is unusual.
+
+### Expected effort
+
+- Inspect one MAT file and confirm its structure/units: approximately 0.5 day.
+- Implement and test a separate loader plus signal plots: approximately 0.5–1 day.
+- Implement the compatible feature adapter, verify bearing metadata and label grouping, then run the locked external evaluation: approximately 1–3 additional days.
+
+These are planning estimates, not a promise of successful model transfer. The first file inspection could reveal missing metadata or incompatible feature definitions that require further work.
