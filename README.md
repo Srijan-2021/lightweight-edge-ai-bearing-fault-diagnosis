@@ -2,7 +2,7 @@
 
 A research prototype for vibration-based bearing fault diagnosis using signal processing, engineered features, compact machine-learning models, and an offline edge-inference simulation.
 
-> **Project status (16 November 2026):** The packaged Paderborn 34-feature binary baseline, selected CWRU supplementary experiments, reusable inference module, Streamlit presentation demo, offline replay utility and ten curated research notebooks are in the repository. Stage 2 bearing-level cross-validation, external UORED integration, TCN/distillation/compression and physical edge-device benchmarking remain future work. This is an academic research prototype, not a validated industrial predictive-maintenance product.
+> **Project status (16 November 2026):** The packaged Paderborn 34-feature binary baseline, selected CWRU supplementary experiments, reusable inference module, Streamlit presentation demo, offline replay utility and eleven curated research notebooks are in the repository. Stage 2 bearing-level cross-validation, external UORED integration, TCN/distillation/compression and physical edge-device benchmarking remain future work. This is an academic research prototype, not a validated industrial predictive-maintenance product.
 
 ## Overview
 
@@ -141,6 +141,8 @@ For public hosting, merge the app files into `main`, then select this repository
 **Scope:** the hosted application is a cloud-based presentation demonstrator. Its interactive predictor is the standalone Paderborn 34-feature binary baseline, not the V2 sequence-model Stage 1/Stage 2 system. It is not a physical Raspberry Pi deployment or an edge-device benchmark. Raw MAT recordings are not committed.
 
 ## Documentation
+
+- [Notebook 08 — Binary Damage Detection](notebooks/08_binary_damage_detection.ipynb)
 
 - [Project status and viva showcase](docs/project_status_and_viva.md)
 - [Windows local setup](docs/local_setup_windows.md)

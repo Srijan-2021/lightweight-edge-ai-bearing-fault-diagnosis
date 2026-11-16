@@ -150,6 +150,10 @@ Then, with JupyterLab started from the `notebooks` folder, open `11_cwru_dataset
 
 This is a supplementary selected-subset study. Its load/recording splits do not prove generalisation to independent physical bearing specimens.
 
+### Run Notebook 08 — Binary Damage Detection
+
+Notebook 08 is the Paderborn binary-classification experiment. Run notebooks 01–03 first so `data/processed/paderborn_vibration_features.csv` exists, and ensure original Paderborn MAT folders are present under `data/raw/`. Then open `08_binary_damage_detection.ipynb` and run from top to bottom using the **Python 3.11 (Bearing Notebooks)** kernel. It calculates BPFO/BPFI features, compares binary feature representations, and exports integrated development/test feature tables under `data/processed/baseline/` for Notebook 09. The integrated binary task uses Healthy, Outer and Inner; Both is excluded.
+
 ## 4. Later research notebooks and model training
 
 `requirements-research.txt` is the fuller research environment and includes TensorFlow, scikit-learn, JupyterLab and the scientific Python packages. Create a separate environment when you are ready to run the later classical/deep-learning notebooks:
