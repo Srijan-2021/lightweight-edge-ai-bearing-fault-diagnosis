@@ -18,6 +18,8 @@ The first six curated notebooks currently in this repository are:
 | `04_feature_analysis.ipynb` | Inspect distributions, relationships and feature redundancy |
 | `05_data_split_and_sequences.ipynb` | Create bearing-disjoint partitions and chronological sequences |
 | `06_classical_baselines.ipynb` | Evaluate classical baselines for the prepared tasks |
+| `07_teacher_models.ipynb` | Train and evaluate LSTM, GRU and Transformer teacher models |
+| `09_baseline_model_packaging.ipynb` | Package and verify the separate 34-feature binary baseline |
 
 ## Data paths
 
@@ -29,4 +31,4 @@ The early Paderborn notebooks use relative paths such as `../data/raw` and `../d
 
 Committed notebooks have cleared cell outputs to avoid embedding large tables, plots or run-specific machine paths. Run cells locally to regenerate outputs. The notebooks are research records; a successful JSON/syntax check is not the same as a complete end-to-end reproduction.
 
-The sequence-model experiments, baseline-packaging pipeline, continuous-signal audit and CWRU supplementary study are documented separately in the project notes and are being curated into portable notebook files in a later pass. Do not assume they are all included in this six-notebook set.
+Notebook 07 contains the sequence teacher-model experiments, while notebook 09 covers packaging the separate 34-feature binary baseline. The large combined binary-detection notebook, continuous-signal audit and CWRU supplementary study still require a separate portability/output review.
