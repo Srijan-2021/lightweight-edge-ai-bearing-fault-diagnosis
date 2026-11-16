@@ -114,6 +114,7 @@ A future hardware study should measure end-to-end latency, memory use, energy co
 ## Documentation
 
 - [System architecture](docs/architecture.md)
+- [Experimental results summary](docs/experiment_results.md)
 - [Literature review and research positioning](docs/literature_review.md)
 - [Evaluation, overfitting and deployment limitations](docs/limitations.md)
 
