@@ -1,14 +1,8 @@
 # Research notebooks
 
-For Windows setup, see [Run the project locally](../docs/local_setup_windows.md). Once dependencies and data are ready, run the notebooks in numerical order from a Jupyter session started inside this folder:
+For Windows setup, see [Run the project locally](../docs/local_setup_windows.md). For notebooks 01–04, install `requirements-notebooks-core.txt`; use `requirements-research.txt` only when you are ready for the heavier model-training environment. Start JupyterLab from this folder after selecting the registered notebook kernel.
 
-```bash
-cd notebooks
-python -m pip install -r ../requirements-research.txt
-jupyter lab
-```
-
-The first six curated notebooks currently in this repository are:
+The following ten curated notebooks are currently in this repository:
 
 | Notebook | Purpose |
 |---|---|
@@ -50,3 +44,7 @@ The early Paderborn notebooks use relative paths such as `../data/raw` and `../d
 Committed notebooks have cleared cell outputs to avoid embedding large tables, plots or run-specific machine paths. Run cells locally to regenerate outputs. The notebooks are research records; a successful JSON/syntax check is not the same as a complete end-to-end reproduction.
 
 Notebook 07 contains the sequence teacher-model experiments, while notebook 09 covers packaging the separate 34-feature binary baseline. The large combined binary-detection notebook (08) remains excluded because it duplicates parts of the staged workflow and needs a more substantial split and review.
+
+## Notebook 08 status
+
+`08_stage2_bearing_cv.ipynb` is intentionally not included yet. The Stage 2 bearing-level cross-validation plan is documented in [the validation plan](../docs/validation_plan.md), but this experiment still needs to be implemented and executed before it can be called completed work.
