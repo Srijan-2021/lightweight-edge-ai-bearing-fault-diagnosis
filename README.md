@@ -142,6 +142,8 @@ For public hosting, merge the app files into `main`, then select this repository
 
 ## Documentation
 
+- [Validation plan — unseen bearings and edge-device readiness](docs/validation_plan.md)
+
 - [Windows local setup — Streamlit and research notebooks](docs/local_setup_windows.md)
 
 - [Time-domain features — Module 4](docs/time_domain_features.md)
