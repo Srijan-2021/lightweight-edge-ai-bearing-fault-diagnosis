@@ -142,6 +142,8 @@ For public hosting, merge the app files into `main`, then select this repository
 
 ## Documentation
 
+- [Windows local setup — Streamlit and research notebooks](docs/local_setup_windows.md)
+
 - [Time-domain features — Module 4](docs/time_domain_features.md)
 
 - [Understanding vibration signals — Module 3](docs/vibration_signals.md)
