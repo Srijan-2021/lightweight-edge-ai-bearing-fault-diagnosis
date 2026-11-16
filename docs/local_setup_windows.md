@@ -47,6 +47,18 @@ Streamlit will print a local address, normally `http://localhost:8501`. Open it 
 
 To test a diagnosis, choose **Run diagnosis** and upload a valid Paderborn `.mat` file containing the named `vibration_1` and `speed` channels. The recording must contain at least 64,000 vibration samples. Raw MAT files are not included in Git.
 
+
+## 2A. Confirm the local app is working
+
+A successful local smoke check should show:
+
+- The Overview page loads.
+- The Run diagnosis page accepts a Paderborn `.mat` file.
+- A valid recording with `vibration_1` and `speed` channels produces a Healthy/Damaged output, class probabilities, processing-time display, waveform and spectrum.
+- The Experimental results and Methodology pages load.
+
+A Windows local run was manually checked on 16 November 2026. The example recording `N09_M07_F10_K001_1.mat` produced a Healthy prediction with 99.80% displayed Healthy probability and 0.20% displayed Damaged probability. This confirms that the demo pipeline executed for that recording; it is not a new independent accuracy evaluation, proof of unseen-bearing generalisation, or an edge-device performance benchmark.
+
 ## 3. Run the learning notebooks (Modules 1–4)
 
 For the first four notebooks, use the smaller core environment. It installs NumPy, Pandas, SciPy, Matplotlib and JupyterLab, and avoids installing TensorFlow before you need the teacher-model notebook.
